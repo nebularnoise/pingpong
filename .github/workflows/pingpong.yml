@@ -7,11 +7,9 @@ jobs:
       issues: write
     steps:
       - name: Add comment
-        run: gh issue comment "$NUMBER" --body "$BODY"
+        run: gh issue comment "$NUMBER" --body "from $NUMBER - $TITLE\n\nPong!"
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GH_REPO: ${{ github.repository }}
           NUMBER: ${{ github.event.issue.number }}
-          BODY: >
-            from $NUMBER - $NAME
-            Pong !
+          TITLE: ${{ github.event.issue.title }}
