@@ -2,7 +2,7 @@ name: Add comment
 on: issue_comment
 jobs:
   add-comment:
-    if: github.event.issue.author_association == 'OWNER'
+    if: github.event.issue.author_association == 'OWNER' && contains(github.event.comment.body, 'ping')
     runs-on: ubuntu-latest
     permissions:
       issues: write
