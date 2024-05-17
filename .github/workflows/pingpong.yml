@@ -1,5 +1,9 @@
 name: Add comment
-on: issue_comment
+on: 
+  issue_comment:
+    types:
+      - created
+
 jobs:
   add-comment:
     if: github.event.issue.author_association == 'OWNER' && contains(github.event.comment.body, 'ping')
